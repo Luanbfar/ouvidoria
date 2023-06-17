@@ -3,7 +3,7 @@ import time
 
 opMenu = -1
 
-connect = abrirBancoDados("localhost", "root", "831920", "bdouvidoria")
+connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
 
 
 
@@ -11,6 +11,14 @@ print("Bem-vindo(a) ao sistema de ouvidoria!")
 print()
 
 while opMenu != 4:
+    print(end='Carregando')
+    time.sleep(0.2)
+    print(end='.')
+    time.sleep(0.2)
+    print (end='.')
+    time.sleep(0.2)
+    print('.')
+    print()
     print("Opção 1: Listar")
     print("Opção 2: Adicionar")
     print("Opção 3: Excluir")
