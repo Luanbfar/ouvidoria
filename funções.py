@@ -1,7 +1,7 @@
 from operacoesbd import *
 import time
 
-connect = abrirBancoDados("localhost", "root", "831920", "bdouvidoria")
+connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
 
 def listar_bd(): #função para listar as linhas do banco de dados
     sql = "select * from manifestacoes"
