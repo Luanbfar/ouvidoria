@@ -65,6 +65,45 @@ def adicionarFeedback():
             dados = (titulo, descricao, autor, tipo)
             insertNoBancoDados(connect, sql, dados)
 
+def exibirQnt():
+    # Cursor para executar consultas SQL
+    cursor = conexao.cursor()
+
+    # Consulta para obter a quantidade geral de manifestações
+    consulta_geral = "SELECT COUNT(*) FROM manifestacoes"
+    cursor.execute(consulta_geral)
+    quantidade_geral = cursor.fetchone()[0]
+
+    # Consulta para obter a quantidade de reclamações
+    consulta_reclamacoes = "SELECT COUNT(*) FROM manifestacoes WHERE tipo = 'reclamacao'"
+    cursor.execute(consulta_reclamacoes)
+    quantidade_reclamacoes = cursor.fetchone()[0]
+
+    # Consulta para obter a quantidade de elogios
+    consulta_elogios = "SELECT COUNT(*) FROM manifestacoes WHERE tipo = 'elogio'"
+    cursor.execute(consulta_elogios)
+    quantidade_elogios = cursor.fetchone()[0]
+
+    # Consulta para obter a quantidade de sugestões
+    consulta_sugestoes = "SELECT COUNT(*) FROM manifestacoes WHERE tipo = 'sugestao'"
+    cursor.execute(consulta_sugestoes)
+    quantidade_sugestoes = cursor.fetchone()[0]
+
+    # Exibição dos resultados
+    print("Quantidade Geral de Manifestações:", quantidade_geral)
+    print("Quantidade de Reclamações:", quantidade_reclamacoes)
+    print("Quantidade de Elogios:", quantidade_elogios)
+    print("Quantidade de Sugestões:", quantidade_sugestoes)
+
+    # Fechando a conexão e o cursor
+    cursor.close()
+    conexao.close()
+
+
+print("Quantidade Geral de Manifestações:", quantidade_geral)
+print("Quantidade de Reclamações:", quantidade_reclamacoes)
+print("Quantidade de Elogios:", quantidade_elogios)
+print("Quantidade de Sugestões:", quantidade_sugestoes)
 
 def excluir_bd():
     codigo = input("Digite seu código, para excluir a ocorrência: ")
