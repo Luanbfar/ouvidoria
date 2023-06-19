@@ -3,16 +3,18 @@ import time
 
 connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
 
-def listar_bd(): #função para listar as linhas do banco de dados
-    sql = "select * from manifestacoes"
+
+def listar_bd():  # função para listar as linhas do banco de dados
+    sql = "select * from manifest"
     resultado = listarBancoDados(connect, sql)
-    if len(resultado) == 0: #checa se existem linhas no banco de dados através do método len()
+    if len(resultado) == 0:  # checa se existem linhas no banco de dados através do método len()
         print("Sem manifestações cadastradas.")
         print()
     else:
-        for i in resultado: #imprime cada linha separadamente utilizando o hífen para separar os elementos de cada linha
+        for i in resultado:  # imprime cada linha separadamente utilizando o hífen para separar os elementos de cada linha
             print(*i, sep=" - ")
             print()
+
 
 def adicionarFeedback():
     tipo = input("Digite o tipo de feedback desejado: ").capitalize()
@@ -63,6 +65,7 @@ def adicionarFeedback():
             dados = (titulo, descricao, autor, tipo)
             insertNoBancoDados(connect, sql, dados)
 
+
 def excluir_bd():
     codigo = input("Digite seu código, para excluir a ocorrência: ")
     sql = "select codigo from manifestacoes"
@@ -75,3 +78,19 @@ def excluir_bd():
         print("A ocorrência foi apagada com sucesso!")
     else:
         print("Código inexistente!, tente novamente.")
+
+
+def editar_bd():
+    cod = input("Digite o código da manifestação a ser editada: ")
+    sql = "select cod from manifest"
+    resultado = listarBancoDados(connect, sql)
+    resultado = str(resultado).strip("[](),")
+    if cod in resultado:
+        titulo = input("Digite o novo título: ")
+        descr = input("Digite a nova descrição: ")
+        sql = "update manifest set titulo = %s, descr = %s where cod = %s"
+        dados = (titulo, descr, cod)
+        atualizarBancoDados(connect, sql, dados)
+        print("Manifestação editada com sucesso!")
+    else:
+        print("Código inválido")
