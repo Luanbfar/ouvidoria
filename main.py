@@ -1,3 +1,11 @@
+"""
+Márcio Vitor de Souza Nascimento
+Luan Gabriel Barbosa de Farias
+Wagner Brito de Sales Júnior
+Vinicius Cândido Firmino
+Ramon gonçalves cabral
+Talles Oliveira Sobral
+"""
 from funcoes import *
 
 opMenu = -1
@@ -27,7 +35,7 @@ while opMenu != 8:
     elif opMenu == 3:
         add_bd()
     elif opMenu == 4:
-        exibirQnt_bd()
+        exibirQuantidadesManifestacoes()
     elif opMenu == 5:
         pesquisar_bd()
     elif opMenu == 6:

@@ -75,14 +75,14 @@ def exibirQuantidadesManifestacoes():
     connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
     cursor = connect.cursor()
 
-    quantidade_geral, quantidade_reclamacoes, quantidade_elogios, quantidade_sugestoes = obterQuantidadesManifestacoes(cursor)
+    quantidade_geral, quantidade_reclamacoes, quantidade_elogios, quantidade_sugestoes = obterQuantidadesManifestacoes(
+        cursor)
 
     # Display the results
     print("Quantidade Geral de Manifestações:", quantidade_geral)
     print("Quantidade de Reclamações:", quantidade_reclamacoes)
     print("Quantidade de Elogios:", quantidade_elogios)
     print("Quantidade de Sugestões:", quantidade_sugestoes)
-
 
 
 def pesquisar_bd():
