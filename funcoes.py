@@ -72,6 +72,7 @@ def add_bd():
 
 
 def exibirQnt_bd():
+    connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
     # Cursor para executar consultas SQL
     cursor = connect.cursor()
 
@@ -136,7 +137,6 @@ def editar_bd():
 
 
 def excluir_bd():  # função para excluir manifestação do banco de dados
-
     connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
     codigo = input("Digite o código da manifestação a ser excluída: ")
     sql = "delete from manifestacoes where codigo = {}".format(codigo)
