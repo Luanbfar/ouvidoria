@@ -4,6 +4,8 @@ connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
 
 
 def listar_bd():  # função para listar as linhas do banco de dados
+
+    connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
     sql = "select * from manifestacoes"
     resultado = listarBancoDados(connect, sql)
     if len(resultado) == 0:  # checa se existem linhas no banco de dados através do método len()
@@ -16,6 +18,7 @@ def listar_bd():  # função para listar as linhas do banco de dados
 
 def listarTipo_bd():  # função para listar as linhas do banco de dados por tipo de manifestação
 
+    connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
     tipo = input("Digite o tipo de manifestação a ser listada (1 - Reclamação; 2 - Sugestão; 3 - Elogio): ")
 
     if tipo == "1":
@@ -39,6 +42,7 @@ def listarTipo_bd():  # função para listar as linhas do banco de dados por tip
 
 
 def add_bd():
+    connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
     titulo = input("Digite o título da manifestação: ")
     descricao = input("Digite a descrição da manifestação: ")
     autor = input("Digite o nome do autor da manifestação: ")
@@ -68,6 +72,7 @@ def add_bd():
 
 
 def exibirQnt_bd():
+    connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
     # Cursor para executar consultas SQL
     cursor = connect.cursor()
 
@@ -103,6 +108,7 @@ def exibirQnt_bd():
 
 
 def pesquisar_bd():
+    connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
     codigo = input("Digite o código da manifestação a ser pesquisada: ")
     sql = "select * from manifestacoes where codigo = {}".format(codigo)
     resultado = listarBancoDados(connect, sql)
@@ -115,6 +121,7 @@ def pesquisar_bd():
 
 
 def editar_bd():
+    connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
     codigo = input("Digite o código da manifestação a ser editada: ")
     sql = "SELECT codigo FROM manifestacoes WHERE codigo = {}".format(codigo)
     resultado = listarBancoDados(connect, sql)
@@ -130,6 +137,8 @@ def editar_bd():
 
 
 def excluir_bd():  # função para excluir manifestação do banco de dados
+
+    connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
     codigo = input("Digite o código da manifestação a ser excluída: ")
     sql = "delete from manifestacoes where codigo = {}".format(codigo)
     resultado = excluirBancoDados(connect, sql, ())
