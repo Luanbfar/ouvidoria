@@ -72,7 +72,6 @@ def add_bd():
 
 
 def exibirQnt_bd():
-    connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
     # Cursor para executar consultas SQL
     cursor = connect.cursor()
 
