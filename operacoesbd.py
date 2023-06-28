@@ -47,22 +47,22 @@ def excluirBancoDados(connection, sql, dados):
 
 
 def obterQuantidadesManifestacoes(cursor):
-    # Query to get the overall quantity of manifestations
+    # consulta para saber a quantidade de Manifestações no total
     consulta_geral = "SELECT COUNT(*) FROM manifestacoes"
     cursor.execute(consulta_geral)
     quantidade_geral = cursor.fetchone()[0]
 
-    # Query to get the quantity of complaints
+    # consulta para saber a quantidade de Reclações
     consulta_reclamacoes = "SELECT COUNT(*) FROM manifestacoes WHERE tipo = 'reclamacao'"
     cursor.execute(consulta_reclamacoes)
     quantidade_reclamacoes = cursor.fetchone()[0]
 
-    # Query to get the quantity of compliments
+    # consulta para saber a quantidade de Elogios
     consulta_elogios = "SELECT COUNT(*) FROM manifestacoes WHERE tipo = 'elogio'"
     cursor.execute(consulta_elogios)
     quantidade_elogios = cursor.fetchone()[0]
 
-    # Query to get the quantity of suggestions
+    # consulta para saber a quantidade de Sugestões
     consulta_sugestoes = "SELECT COUNT(*) FROM manifestacoes WHERE tipo = 'sugestao'"
     cursor.execute(consulta_sugestoes)
     quantidade_sugestoes = cursor.fetchone()[0]

@@ -6,6 +6,8 @@ Vinicius Cândido Firmino
 Ramon gonçalves cabral
 Talles Oliveira Sobral
 """
+import time
+
 from funcoes import *
 
 opMenu = -1
@@ -13,7 +15,12 @@ opMenu = -1
 connect = abrirBancoDados("localhost", "root", "root", "bdouvidoria")
 
 print("Bem-vindo(a) ao sistema de ouvidoria!")
-
+print()
+print("carregando", end='')
+for i in range(3):
+    time.sleep(0.3)
+    print(".", end='')
+print()
 while opMenu != 8:
     print()
     print("Opção 1: Listar as manifestações")
@@ -43,7 +50,11 @@ while opMenu != 8:
     elif opMenu == 7:
         excluir_bd()
     elif opMenu == 8:
-        print("Saindo...")
+        print("Saindo", end='')
+        for i in range(3):
+            time.sleep(0.3)
+            print(".", end='')
+
     else:
         print("Opção inválida. Digite novamente")
 
