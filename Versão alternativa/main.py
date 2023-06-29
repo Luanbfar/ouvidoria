@@ -13,7 +13,7 @@ while opMenu != 8:
     print("Opção 1: Listar as manifestações")
     print("Opção 2: Listar manifestação por tipo")
     print("Opção 3: Criar nova manifestação")
-    print("Opção 4: Exibir quatidade de manifestações")
+    print("Opção 4: Exibir quantidade de manifestações")
     print("Opção 5: Pesquisar uma manifestação por código")
     print("Opção 6: Alterar o Título e Descrição de uma Manifestação")
     print("Opção 7: Excluir uma Manifestação pelo Código")
